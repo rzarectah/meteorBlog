@@ -1,14 +1,30 @@
 <head>
-  <title>blog</title>
+  <title>Meteor Blog</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+<div class="container">
+  <header>
+    <h1>Blog Posts {{postCount}}</h1>
 
-  {{> hello}}
+    {{> loginButtons}}
+
+    {{#if currentUser}}
+    <form class="new-post">
+      <input type="text" name="blogTitle" placeholder="Post Title" />
+      <input type="text" name="blogDesc" placeholder="Post Description" />
+    </form>
+    {{/if}}
+  </header>
+
+  <ul>
+    {{#each posts}}
+    {{> post}}
+    {{/each}}
+  </ul>
+</div>
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="blog">
+
 </template>
